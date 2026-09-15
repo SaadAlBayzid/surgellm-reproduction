@@ -1,0 +1,61 @@
+{
+  "full_training_started": false,
+  "runtime": {
+    "device": "cpu",
+    "precision": "fp32",
+    "cuda_available": false,
+    "torch_version": "2.6.0+cpu",
+    "torch_cuda_version": null,
+    "gpu": null
+  },
+  "tasks": {
+    "D1": {
+      "counts": {
+        "test": 872,
+        "train": 6899,
+        "validation": 767
+      },
+      "token_shape": [
+        2,
+        128
+      ]
+    },
+    "D2": {
+      "counts": {
+        "test": 300,
+        "train": 1400,
+        "validation": 300
+      },
+      "token_shape": [
+        2,
+        128
+      ]
+    },
+    "D3": {
+      "counts": {
+        "test": 476,
+        "train": 2214,
+        "validation": 474
+      },
+      "token_shape": [
+        2,
+        128
+      ]
+    },
+    "D4": {
+      "counts": {
+        "test": 750,
+        "train": 3500,
+        "validation": 750
+      },
+      "token_shape": [
+        2,
+        128
+      ]
+    }
+  },
+  "data_frozen": true,
+  "model_scope": "existing single-head debugging classifier; not four-head reproduction",
+  "cuda_smoke": "SKIPPED_CUDA_UNAVAILABLE",
+  "data_checks": "PASSED"
+}

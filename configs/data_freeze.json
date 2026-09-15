@@ -1,0 +1,17 @@
+{
+  "data_seed": 0,
+  "output": "data/frozen/v1",
+  "raw": {
+    "D1": ["../../work/roberta-assets/train.tsv", "../../work/roberta-assets/dev.tsv"],
+    "D2": ["../../work/data-downloads/hotpot/train-00000-of-00002.parquet", "../../work/data-downloads/hotpot/train-00001-of-00002.parquet"],
+    "D3": ["data/raw/train_essays_7_prompts.csv"],
+    "D4": ["data/raw/ai_human_sample_10k.csv"]
+  },
+  "d1_debug_manifest": "results/roberta-smoke-seed0/data_manifest.json",
+  "policies": {
+    "D1": "BEST-EFFORT: reuse existing cap_then_holdout seed-0 IDs verbatim (6899/767/872). Paper cap/split ambiguity retained.",
+    "D2": "BEST-EFFORT: pinned HotPotQA distractor TRAIN source (90447), versus paper's 90564 validation statement. Select 980 easy + 1020 medium/hard to match Table 2 minority percentage; SHA256-ranked without replacement. Supporting paragraphs only, original order, no titles, first 300 whitespace-delimited words. Split 70/15/15 with global floor/floor/remainder and largest-remainder class quotas.",
+    "D3": "BEST-EFFORT: Kaggle dataset version 1, exact 14877/13712/1165 counts; proportional 3164 cap without replacement. PAPER INCONSISTENCY: balanced 3164 requires 1582 AI but only 1165 exist. No oversampling. Split 70/15/15 as D2.",
+    "D4": "USER DECISION: exact recovered 10000-row sample, 4452 human/5548 LLM; SHA256-ranked 2500 each without replacement. Recovered same-parent subset, not author draw. Split 70/15/15 as D2."
+  }
+}

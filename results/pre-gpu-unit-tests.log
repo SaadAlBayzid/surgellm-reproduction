@@ -1,0 +1,53 @@
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+test_accumulation_matches_concatenated_global_objective (test_multitask_baseline.MultiTaskTests) ... ok
+test_certificate_changes_with_every_code_config_and_data_identity (test_multitask_baseline.MultiTaskTests) ... ok
+test_complete_evaluation_including_short_tail_and_auc (test_multitask_baseline.MultiTaskTests) ... ok
+test_cpu_four_task_optimizer_checkpoint_smoke (test_multitask_baseline.MultiTaskTests) ... C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\outputs\surgellm-reproduction\src\device_runtime.py:28: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return torch.cuda.amp.GradScaler(enabled=runtime["precision"] == "fp16")
+ok
+test_cuda_gate_missing_stale_or_incomplete (test_multitask_baseline.MultiTaskTests) ... ok
+test_decay_exclusions (test_multitask_baseline.MultiTaskTests) ... ok
+test_early_stopping_ties_and_reset (test_multitask_baseline.MultiTaskTests) ... ok
+test_effective_batch_and_tail (test_multitask_baseline.MultiTaskTests) ... ok
+{"epoch": 1, "training_loss": 0.6931638643145561, "training_seconds": 0.03942920000000072, "evaluation_checkpoint_seconds": 0.028238400000001107, "global_examples_per_second": 202.8953161616227, "microbatches_per_second": 202.8953161616227, "optimizer_updates": 4, "amp_skipped_updates": 0, "learning_rate": 0.0, "validation": {"D1": {"examples": 5, "loss": 0.692872941493988, "accuracy": 0.6, "macro_f1": 0.37499999999999994, "macro_precision": 0.3, "macro_recall": 0.5, "roc_auc": 0.5, "roc_auc_undefined_reason": null}, "D2": {"examples": 5, "loss": 0.6932441592216492, "accuracy": 0.4, "macro_f1": 0.28571428571428575, "macro_precision": 0.2, "macro_recall": 0.5, "roc_auc": 0.33333333333333337, "roc_auc_undefined_reason": null}, "D3": {"examples": 5, "loss": 0.6932743787765503, "accuracy": 0.4, "macro_f1": 0.28571428571428575, "macro_precision": 0.2, "macro_recall": 0.5, "roc_auc": 0.33333333333333337, "roc_auc_undefined_reason": null}, "D4": {"examples": 5, "loss": 0.6932195425033569, "accuracy": 0.4, "macro_f1": 0.28571428571428575, "macro_precision": 0.2, "macro_recall": 0.5, "roc_auc": 0.0, "roc_auc_undefined_reason": null}}, "mean_task_macro_f1": 0.3080357142857143, "best": true, "batch_semantics": {"per_device": 1, "world_size": 1, "accumulation": 2, "effective_global_batch": 2, "microbatches_per_epoch": 8, "updates_per_epoch": 4, "example_exposures_per_epoch": 8}}
+test_end_to_end_cpu_trainer_with_tiny_fixtures (test_multitask_baseline.MultiTaskTests) ... ok
+test_four_heads_route_and_shared_encoder_gradients (test_multitask_baseline.MultiTaskTests) ... ok
+test_routing_matches_direct_head (test_multitask_baseline.MultiTaskTests) ... ok
+test_scheduling_determinism_coverage_and_balance (test_multitask_baseline.MultiTaskTests) ... ok
+test_single_class_auc_is_null_not_nan (test_multitask_baseline.MultiTaskTests) ... ok
+test_two_process_ddp_changing_heads_accumulation (test_multitask_baseline.MultiTaskTests) ... C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+ok
+test_eval_example_weighting_and_no_grad (test_roberta_baseline.BaselineTests) ... ok
+test_metrics_fixed_two_classes (test_roberta_baseline.BaselineTests) ... ok
+test_schedule_boundaries (test_roberta_baseline.BaselineTests) ... ok
+test_cpu_detection_and_reject_fp16 (test_runtime_and_preflight.RuntimeTests) ... ok
+test_cpu_scaled_backward_update (test_runtime_and_preflight.RuntimeTests) ... C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\outputs\surgellm-reproduction\src\device_runtime.py:28: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return torch.cuda.amp.GradScaler(enabled=runtime["precision"] == "fp16")
+ok
+test_cuda_selection_without_allocating (test_runtime_and_preflight.RuntimeTests) ... ok
+test_reproduction_config_cannot_run (test_runtime_and_preflight.RuntimeTests) ... ok
+test_invalid_choices (test_sst2.SST2Tests) ... ok
+test_policies_and_no_id_leakage (test_sst2.SST2Tests) ... ok
+test_reproducibility_and_seed_effect (test_sst2.SST2Tests) ... ok
+test_tsv_preserves_text_and_rejects_unlabeled (test_sst2.SST2Tests) ... ok
+test_d3_rejects_wrong_version_and_counts (test_task_data.DataTests) ... ok
+test_d4_exact_quota_and_reorder_invariance (test_task_data.DataTests) ... ok
+test_freeze_reuse_tamper_rejected (test_task_data.DataTests) ... ok
+test_hotpot_mapping_and_context (test_task_data.DataTests) ... ok
+test_invalid_labels_empty_text (test_task_data.DataTests) ... ok
+test_partition_no_id_overlap (test_task_data.DataTests) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 11.185s
+
+OK

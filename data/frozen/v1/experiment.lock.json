@@ -1,0 +1,27 @@
+{
+  "data_seed": 0,
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "model_independent_splits": true,
+  "tasks": {
+    "D1": {
+      "manifest": "D1/manifest.json",
+      "sha256": "21c83dca0a1e18a7af00f39ce2d731adb58da4d381305ca4bd1950cc37a748fc"
+    },
+    "D2": {
+      "manifest": "D2/manifest.json",
+      "sha256": "615016d46871d2977ac31d8de0eea4baff9eb8cc24059d0c02098e69001f9f6a"
+    },
+    "D3": {
+      "manifest": "D3/manifest.json",
+      "sha256": "70d9ca749206bd72a89c960a27278c608769c458456a5a3a802f68818080d80d"
+    },
+    "D4": {
+      "manifest": "D4/manifest.json",
+      "sha256": "ebd48705401c3017cc77155cb5d33d7b6ad501795a09c657a96835cc99beb89b"
+    }
+  }
+}

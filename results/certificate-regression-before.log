@@ -1,0 +1,28 @@
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+.F.C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\outputs\surgellm-reproduction\src\device_runtime.py:28: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return torch.cuda.amp.GradScaler(enabled=runtime["precision"] == "fp16")
+{"epoch": 1, "training_loss": 0.6931638643145561, "training_seconds": 0.04874780000000101, "evaluation_checkpoint_seconds": 0.029232099999997985, "global_examples_per_second": 164.10997009095456, "microbatches_per_second": 164.10997009095456, "optimizer_updates": 4, "amp_skipped_updates": 0, "learning_rate": 0.0, "validation": {"D1": {"examples": 5, "loss": 0.692872941493988, "accuracy": 0.6, "macro_f1": 0.37499999999999994, "macro_precision": 0.3, "macro_recall": 0.5, "roc_auc": 0.5, "roc_auc_undefined_reason": null}, "D2": {"examples": 5, "loss": 0.6932441592216492, "accuracy": 0.4, "macro_f1": 0.28571428571428575, "macro_precision": 0.2, "macro_recall": 0.5, "roc_auc": 0.33333333333333337, "roc_auc_undefined_reason": null}, "D3": {"examples": 5, "loss": 0.6932743787765503, "accuracy": 0.4, "macro_f1": 0.28571428571428575, "macro_precision": 0.2, "macro_recall": 0.5, "roc_auc": 0.33333333333333337, "roc_auc_undefined_reason": null}, "D4": {"examples": 5, "loss": 0.6932195425033569, "accuracy": 0.4, "macro_f1": 0.28571428571428575, "macro_precision": 0.2, "macro_recall": 0.5, "roc_auc": 0.0, "roc_auc_undefined_reason": null}}, "mean_task_macro_f1": 0.3080357142857143, "best": true, "batch_semantics": {"per_device": 1, "world_size": 1, "accumulation": 2, "effective_global_batch": 2, "microbatches_per_epoch": 8, "updates_per_epoch": 4, "example_exposures_per_epoch": 8}}
+..........C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\work\roberta39\lib\site-packages\transformers\utils\generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+.
+======================================================================
+FAIL: test_certificate_changes_with_every_code_config_and_data_identity (test_multitask_baseline.MultiTaskTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\saad\Documents\Codex\2026-09-14\create-an-image-of\outputs\surgellm-reproduction\tests\test_multitask_baseline.py", line 255, in test_certificate_changes_with_every_code_config_and_data_identity
+    self.assertNotEqual(initial, fingerprint(fixture, {'seed':0}, {'D1':'original'}))
+AssertionError: 'c5b5d5160040b4175037253b70a90cb22703e0099b5c82f4a75a6fb89e635b5b' == 'c5b5d5160040b4175037253b70a90cb22703e0099b5c82f4a75a6fb89e635b5b'
+
+----------------------------------------------------------------------
+Ran 14 tests in 14.227s
+
+FAILED (failures=1)

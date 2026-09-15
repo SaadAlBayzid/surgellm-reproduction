@@ -1,0 +1,94 @@
+{
+  "status": "READY_FOR_KAGGLE_SMOKE",
+  "local_training_started": false,
+  "cuda_executed": false,
+  "unit_tests": 31,
+  "unit_tests_status": "PASSED",
+  "raw_artifacts_verified": [
+    {
+      "path": "..\\..\\work\\roberta-assets\\train.tsv",
+      "sha256": "680bb74f87741f136dbfb7c5ea26319e7f099a9337c91c0959e277b8f637b008"
+    },
+    {
+      "path": "..\\..\\work\\roberta-assets\\dev.tsv",
+      "sha256": "ff5fbb5435d9ac6c7dc1772f4ec458a5d78a1ec30e4c59ef907d96efdd8669f6"
+    },
+    {
+      "path": "..\\..\\work\\data-downloads\\hotpot\\train-00000-of-00002.parquet",
+      "sha256": "76d3bb3048a7cc73c1958107c0c5872a00d7e7d00c105b81e92f6769e7822e68"
+    },
+    {
+      "path": "..\\..\\work\\data-downloads\\hotpot\\train-00001-of-00002.parquet",
+      "sha256": "713661628434fbb19fff7392e2e321e4ed107e3c7c7784d0690946e5f722763f"
+    },
+    {
+      "path": "data\\raw\\train_essays_7_prompts.csv",
+      "sha256": "4f03a2d745b28ccaf36a110dac06167f3193e8478b8279a00f95dac91a1ff8fe"
+    },
+    {
+      "path": "data\\raw\\ai_human_sample_10k.csv",
+      "sha256": "a00a8412eb7b4bcd2673212d91139689002aa6f7c72315d738f9a7cb4dcad0ef"
+    },
+    {
+      "path": "..\\..\\work\\data-downloads\\d3_v1.zip",
+      "sha256": "b59efeaa4e2db09c4f3564ef3d2f06aa2246e3a268ed8c4439da37cd0d036e70"
+    },
+    {
+      "path": "..\\..\\work\\roberta-assets\\data\\train-00000-of-00001.parquet",
+      "sha256": "c7921283b75a42e685f50edecb96798607ea0fcbfd0739ee8975f22c12d55f09"
+    },
+    {
+      "path": "..\\..\\work\\roberta-assets\\data\\validation-00000-of-00001.parquet",
+      "sha256": "fb00fe008f6828f86ba2beda8415a4cf5da0c884f21c5f238c87131b5aa19529"
+    }
+  ],
+  "frozen_manifest_hashes": {
+    "experiment.lock.json": "08099cac1fd9c1bd836454a918df0528c92266933a800b5bf1b52cac7e6a619c",
+    "D1": "21c83dca0a1e18a7af00f39ce2d731adb58da4d381305ca4bd1950cc37a748fc",
+    "D2": "615016d46871d2977ac31d8de0eea4baff9eb8cc24059d0c02098e69001f9f6a",
+    "D3": "70d9ca749206bd72a89c960a27278c608769c458456a5a3a802f68818080d80d",
+    "D4": "ebd48705401c3017cc77155cb5d33d7b6ad501795a09c657a96835cc99beb89b"
+  },
+  "preflight_exit_code": 2,
+  "full_gate": "BLOCKED",
+  "gate_errors": [
+    "Matching two-T4 CUDA smoke certificate is missing"
+  ],
+  "fingerprint": "58403e5079a81af75259d9f83e368b3bc5ebcc8665efdc17df597be7088dd9db",
+  "git": {
+    "available": false,
+    "head": "NOT_A_GIT_CHECKOUT; content hashes are authoritative"
+  },
+  "smoke_static_audit": {
+    "launch": "torchrun --standalone --nproc_per_node=2",
+    "backend": "NCCL",
+    "rank_device_binding": "torch.cuda.set_device(LOCAL_RANK); DDP device_ids=[LOCAL_RANK]",
+    "precision": "auto resolves CUDA to FP16; certificate requires FP16",
+    "batch": {
+      "per_device": 16,
+      "world_size": 2,
+      "accumulation": 2,
+      "effective_global_batch": 64,
+      "microbatches_per_epoch": 8,
+      "updates_per_epoch": 4,
+      "example_exposures_per_epoch": 256
+    },
+    "sequence_lengths": {
+      "D1": 128,
+      "D2": 128,
+      "D3": 128,
+      "D4": 128
+    },
+    "epochs": 1,
+    "train_view_rows_per_task": {
+      "D1": 64,
+      "D2": 64,
+      "D3": 64,
+      "D4": 64
+    },
+    "peak_memory": "max_memory_allocated on each rank; all_gather_object to certificate",
+    "environment_gate": "hash checked against live software/driver/GPU/precision/world size before model load",
+    "validation_rows": 2291,
+    "test_rows": 2398
+  }
+}

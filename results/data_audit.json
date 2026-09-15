@@ -1,0 +1,309 @@
+{
+  "D1": {
+    "raw_artifacts": [
+      {
+        "path": "../../work/roberta-assets/train.tsv",
+        "sha256": "680bb74f87741f136dbfb7c5ea26319e7f099a9337c91c0959e277b8f637b008",
+        "bytes": 3873431,
+        "rows": 67349,
+        "raw_class_counts": {
+          "0": 29780,
+          "1": 37569
+        },
+        "columns": [
+          "sentence",
+          "label"
+        ]
+      },
+      {
+        "path": "../../work/roberta-assets/dev.tsv",
+        "sha256": "ff5fbb5435d9ac6c7dc1772f4ec458a5d78a1ec30e4c59ef907d96efdd8669f6",
+        "bytes": 95804,
+        "rows": 872,
+        "raw_class_counts": {
+          "1": 444,
+          "0": 428
+        },
+        "columns": [
+          "sentence",
+          "label"
+        ]
+      }
+    ],
+    "frozen": {
+      "cross_split_exact_text_overlap": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "data_seed": 0,
+      "policy": "BEST-EFFORT: reuse existing cap_then_holdout seed-0 IDs verbatim (6899/767/872). Paper cap/split ambiguity retained.",
+      "raw_artifacts": {
+        "dev.tsv": "ff5fbb5435d9ac6c7dc1772f4ec458a5d78a1ec30e4c59ef907d96efdd8669f6",
+        "train.tsv": "680bb74f87741f136dbfb7c5ea26319e7f099a9337c91c0959e277b8f637b008"
+      },
+      "splits": {
+        "test": {
+          "class_counts": {
+            "0": 428,
+            "1": 444
+          },
+          "count": 872,
+          "file": "test.jsonl",
+          "sha256": "56f1478dfdf379a34f7b19da78c88f9afe50272ce1bf039e0e67de75b0c47d53"
+        },
+        "train": {
+          "class_counts": {
+            "0": 3051,
+            "1": 3848
+          },
+          "count": 6899,
+          "file": "train.jsonl",
+          "sha256": "f1ecd671a2360344b8be4df028e428f7a82171a6d5b72dd074d901007d29ff98"
+        },
+        "validation": {
+          "class_counts": {
+            "0": 339,
+            "1": 428
+          },
+          "count": 767,
+          "file": "validation.jsonl",
+          "sha256": "49462681b0a6b537b678df6207f63d692be9f2f7d30f3b780495f1e6ca44ef88"
+        }
+      },
+      "task_id": "D1"
+    }
+  },
+  "D2": {
+    "raw_artifacts": [
+      {
+        "path": "../../work/data-downloads/hotpot/train-00000-of-00002.parquet",
+        "sha256": "76d3bb3048a7cc73c1958107c0c5872a00d7e7d00c105b81e92f6769e7822e68",
+        "bytes": 165624177,
+        "rows": 45224,
+        "raw_class_counts": {
+          "medium": 28384,
+          "hard": 7854,
+          "easy": 8986
+        },
+        "columns": [
+          "id",
+          "question",
+          "answer",
+          "type",
+          "level",
+          "element",
+          "element",
+          "element",
+          "element"
+        ]
+      },
+      {
+        "path": "../../work/data-downloads/hotpot/train-00001-of-00002.parquet",
+        "sha256": "713661628434fbb19fff7392e2e321e4ed107e3c7c7784d0690946e5f722763f",
+        "bytes": 166162479,
+        "rows": 45223,
+        "raw_class_counts": {
+          "easy": 8986,
+          "medium": 28430,
+          "hard": 7807
+        },
+        "columns": [
+          "id",
+          "question",
+          "answer",
+          "type",
+          "level",
+          "element",
+          "element",
+          "element",
+          "element"
+        ]
+      }
+    ],
+    "frozen": {
+      "cross_split_exact_text_overlap": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "data_seed": 0,
+      "policy": "BEST-EFFORT: pinned HotPotQA distractor TRAIN source (90447), versus paper's 90564 validation statement. Select 980 easy + 1020 medium/hard to match Table 2 minority percentage; SHA256-ranked without replacement. Supporting paragraphs only, original order, no titles, first 300 whitespace-delimited words. Split 70/15/15 with global floor/floor/remainder and largest-remainder class quotas.",
+      "raw_artifacts": {
+        "train-00000-of-00002.parquet": "76d3bb3048a7cc73c1958107c0c5872a00d7e7d00c105b81e92f6769e7822e68",
+        "train-00001-of-00002.parquet": "713661628434fbb19fff7392e2e321e4ed107e3c7c7784d0690946e5f722763f"
+      },
+      "splits": {
+        "test": {
+          "class_counts": {
+            "0": 147,
+            "1": 153
+          },
+          "count": 300,
+          "file": "test.jsonl",
+          "sha256": "d1c7ce44431dea3db05f4ec4b9620a0ef749b4acf3b25bc21968848e2659b1ce"
+        },
+        "train": {
+          "class_counts": {
+            "0": 686,
+            "1": 714
+          },
+          "count": 1400,
+          "file": "train.jsonl",
+          "sha256": "63a81e15d21747babb00b73a6b37abd228bef1e06c18a35c7f609c1de7758eaf"
+        },
+        "validation": {
+          "class_counts": {
+            "0": 147,
+            "1": 153
+          },
+          "count": 300,
+          "file": "validation.jsonl",
+          "sha256": "3454d0bda2602ec4f3b7322b8ca6d9cfb64ff3e854d3f68111fdf432c1d2b6d3"
+        }
+      },
+      "task_id": "D2"
+    }
+  },
+  "D3": {
+    "raw_artifacts": [
+      {
+        "path": "data/raw/train_essays_7_prompts.csv",
+        "sha256": "4f03a2d745b28ccaf36a110dac06167f3193e8478b8279a00f95dac91a1ff8fe",
+        "bytes": 35490367,
+        "rows": 14877,
+        "raw_class_counts": {
+          "0": 13712,
+          "1": 1165
+        },
+        "columns": [
+          "text",
+          "label"
+        ]
+      }
+    ],
+    "frozen": {
+      "cross_split_exact_text_overlap": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "data_seed": 0,
+      "policy": "BEST-EFFORT: Kaggle dataset version 1, exact 14877/13712/1165 counts; proportional 3164 cap without replacement. PAPER INCONSISTENCY: balanced 3164 requires 1582 AI but only 1165 exist. No oversampling. Split 70/15/15 as D2.",
+      "raw_artifacts": {
+        "train_essays_7_prompts.csv": "4f03a2d745b28ccaf36a110dac06167f3193e8478b8279a00f95dac91a1ff8fe"
+      },
+      "splits": {
+        "test": {
+          "class_counts": {
+            "0": 439,
+            "1": 37
+          },
+          "count": 476,
+          "file": "test.jsonl",
+          "sha256": "f900419b97755b292e2dfce77f38b9044645a29489a04dfc7721ff89c87d068d"
+        },
+        "train": {
+          "class_counts": {
+            "0": 2040,
+            "1": 174
+          },
+          "count": 2214,
+          "file": "train.jsonl",
+          "sha256": "69869f9f253320a045334bb478c786357ed0c1f804c03d0c1f1bc7b6497c3a6f"
+        },
+        "validation": {
+          "class_counts": {
+            "0": 437,
+            "1": 37
+          },
+          "count": 474,
+          "file": "validation.jsonl",
+          "sha256": "50afcc44eac16f95642b7f05fb62cf4c7e159d5b2504967255ab7e40598fa295"
+        }
+      },
+      "task_id": "D3"
+    }
+  },
+  "D4": {
+    "raw_artifacts": [
+      {
+        "path": "data/raw/ai_human_sample_10k.csv",
+        "sha256": "a00a8412eb7b4bcd2673212d91139689002aa6f7c72315d738f9a7cb4dcad0ef",
+        "bytes": 31518774,
+        "rows": 10000,
+        "raw_class_counts": {
+          "0": 4452,
+          "1": 5548
+        },
+        "columns": [
+          "text",
+          "source",
+          "prompt_id",
+          "text_length",
+          "word_count",
+          "label"
+        ]
+      }
+    ],
+    "frozen": {
+      "cross_split_exact_text_overlap": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "data_seed": 0,
+      "policy": "USER DECISION: exact recovered 10000-row sample, 4452 human/5548 LLM; SHA256-ranked 2500 each without replacement. Recovered same-parent subset, not author draw. Split 70/15/15 as D2.",
+      "raw_artifacts": {
+        "ai_human_sample_10k.csv": "a00a8412eb7b4bcd2673212d91139689002aa6f7c72315d738f9a7cb4dcad0ef"
+      },
+      "splits": {
+        "test": {
+          "class_counts": {
+            "0": 375,
+            "1": 375
+          },
+          "count": 750,
+          "file": "test.jsonl",
+          "sha256": "fc6ad91026a40cdc1406b5aab50f2ddc67c267667b5dfde8a34fa2779d81268f"
+        },
+        "train": {
+          "class_counts": {
+            "0": 1750,
+            "1": 1750
+          },
+          "count": 3500,
+          "file": "train.jsonl",
+          "sha256": "54024814bc61c65341e701f61f327713304995911a04f3e76e0ddfb089511cc5"
+        },
+        "validation": {
+          "class_counts": {
+            "0": 375,
+            "1": 375
+          },
+          "count": 750,
+          "file": "validation.jsonl",
+          "sha256": "0cc929b6c75e45386ae198fc9bc6a68b20b0680de5209f4552fe38fd8157e505"
+        }
+      },
+      "task_id": "D4"
+    }
+  },
+  "additional_raw_artifacts": [
+    {
+      "path": "../../work/data-downloads/d3_v1.zip",
+      "sha256": "b59efeaa4e2db09c4f3564ef3d2f06aa2246e3a268ed8c4439da37cd0d036e70",
+      "bytes": 10621641
+    },
+    {
+      "path": "../../work/roberta-assets/data/train-00000-of-00001.parquet",
+      "sha256": "c7921283b75a42e685f50edecb96798607ea0fcbfd0739ee8975f22c12d55f09",
+      "bytes": 3110458
+    },
+    {
+      "path": "../../work/roberta-assets/data/validation-00000-of-00001.parquet",
+      "sha256": "fb00fe008f6828f86ba2beda8415a4cf5da0c884f21c5f238c87131b5aa19529",
+      "bytes": 72813
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "experiment": "Baseline-RoBERTa-four-task",
+  "purpose": "paper_reproduction_specification",
+  "status": "TRAINER_IMPLEMENTED_CUDA_SMOKE_REQUIRED",
+  "full_run_enabled": false,
+  "seed": 0,
+  "model": {
+    "name": "roberta-base",
+    "revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+    "shared_encoder": true,
+    "joint_training": true,
+    "head": {
+      "hidden_size": 768,
+      "intermediate_size": 384,
+      "num_labels": 2,
+      "activation": "gelu",
+      "dropout_before_first": 0.1,
+      "dropout_before_second": 0.05,
+      "initialization": "ASSUMPTION: normal(0,0.02) linear weights; zero biases",
+      "initializer_std": 0.02
+    },
+    "encoder_hidden_dropout": 0.1,
+    "encoder_attention_dropout": 0.1,
+    "task_embeddings": false,
+    "surgical_features": false,
+    "prefix_tokens": false,
+    "feature_gate": false,
+    "iwn": false
+  },
+  "tasks": {
+    "D1": {
+      "name": "SST-2",
+      "reported_cap": 7666,
+      "max_length": 128,
+      "source": "GLUE SST-2",
+      "source_revision": "8d51e7e4887a4caaa95b3fbebbf53c0490b58bbb",
+      "split_policy": "existing cap_then_holdout frozen seed-0 IDs",
+      "partition_counts": {
+        "test": 872,
+        "train": 6899,
+        "validation": 767
+      },
+      "manifest": "data/frozen/v1/D1/manifest.json"
+    },
+    "D2": {
+      "name": "HotPotQA",
+      "reported_cap": 2000,
+      "max_length": 128,
+      "context_word_limit": 300,
+      "source_split": "distractor/train; 90447 rows",
+      "context_recipe": "supporting paragraphs in source order; no titles; first 300 whitespace words",
+      "partition_counts": {
+        "test": 300,
+        "train": 1400,
+        "validation": 300
+      },
+      "manifest": "data/frozen/v1/D2/manifest.json",
+      "source_revision": "1908d6afbbead072334abe2965f91bd2709910ab"
+    },
+    "D3": {
+      "name": "LLM-7",
+      "reported_cap": 3164,
+      "max_length": 128,
+      "source": "carlmcbrideellis/llm-7-prompt-training-dataset, datasetVersionNumber=1, train_essays_7_prompts.csv",
+      "label_mapping": {
+        "human": 0,
+        "AI": 1
+      },
+      "partition_counts": {
+        "test": 476,
+        "train": 2214,
+        "validation": 474
+      },
+      "manifest": "data/frozen/v1/D3/manifest.json"
+    },
+    "D4": {
+      "name": "HumLLM",
+      "reported_cap": 5000,
+      "max_length": 128,
+      "source": "user-recovered ai_human_sample_10k.csv from Grinberg parent corpus (user provenance assertion)",
+      "label_mapping": {
+        "Human": 0,
+        "LLM": 1
+      },
+      "partition_counts": {
+        "test": 750,
+        "train": 3500,
+        "validation": 750
+      },
+      "manifest": "data/frozen/v1/D4/manifest.json"
+    }
+  },
+  "training": {
+    "max_epochs": 3,
+    "task_weights": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1
+    },
+    "task_sampling": "ASSUMPTION: equal task-homogeneous batches in D1,D2,D3,D4 round-robin; cycle reshuffled shorter tasks; same task on both ranks",
+    "epoch_definition": "ASSUMPTION: 216 rounds x four tasks; largest task ceil(6899/(16*2)) sets rounds; pad final distributed batch deterministically",
+    "optimizer": "AdamW",
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay_exclusions": [
+      "bias",
+      "LayerNorm.weight"
+    ],
+    "gradient_clip_norm": 1.0,
+    "batch": {
+      "per_device": 16,
+      "accumulation": 2,
+      "global_effective": 64,
+      "paper_reference_devices": 2
+    },
+    "scheduler": {
+      "name": "linear",
+      "warmup_fraction": 0.06,
+      "step_unit": "optimizer_update",
+      "warmup_rounding": "ceil",
+      "total_updates": 1296,
+      "accumulation_tail": "216 rounds x 4 microbatches per rank / accumulation 2 = 432 updates per epoch; no partial window",
+      "warmup_steps": 78
+    },
+    "task_schedule": "task_balanced"
+  },
+  "tokenizer": {
+    "name": "roberta-base",
+    "revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+    "use_fast": true,
+    "padding": "max_length",
+    "truncation_side": "right",
+    "padding_side": "right",
+    "add_prefix_space": false,
+    "cache_chunk_size": 2048
+  },
+  "evaluation": {
+    "metric": "macro_f1",
+    "aggregation_across_tasks": "unweighted mean of four per-task macro-F1 values",
+    "validation_coverage": "all frozen validation rows; deduplicate distributed padding by source_id",
+    "patience": 2,
+    "strict_improvement": true,
+    "restore_best_before_test": true,
+    "metrics": [
+      "loss",
+      "accuracy",
+      "macro_f1",
+      "macro_precision",
+      "macro_recall",
+      "roc_auc"
+    ],
+    "label_order": [
+      0,
+      1
+    ],
+    "zero_division": 0,
+    "batch_size": 16
+  },
+  "runtime": {
+    "device": "auto",
+    "precision": "auto",
+    "reference_precision": "fp16",
+    "reference_gpu": "2x NVIDIA T4 16GB",
+    "distributed_backend": "torch.distributed/DDP/nccl",
+    "cpu_smoke_only": true,
+    "cpu_threads": 2
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "data_lock": "data/frozen/v1/experiment.lock.json",
+  "data_seed": 0,
+  "assumptions": [
+    "D1 cap-before-holdout from historical debug split; paper inconsistent",
+    "D2 HF train release 90447 vs paper validation90564; supporting paragraph construction and quota980/1020",
+    "D3 proportional3164 vs paper balanced impossible without replacement",
+    "D4 recovered same-parent sample not exact author draw",
+    "Shared four heads/no task embedding is paper-derived baseline interpretation",
+    "Head initialization and encoder dropout defaults unknown in author code",
+    "Global batch64 from Table13 rather than prose32",
+    "Round-robin task balancing with cycling and padded batches defines epoch/updates",
+    "Bias and LayerNorm.weight excluded from decay, unlike historical debug decay-all",
+    "Ceil warmup and update-step schedule",
+    "Fast right-padded tokenizer and pinned non-author checkpoint revision",
+    "Full-validation unweighted mean task macro-F1 rather than unknown QuickVal",
+    "Fixed data_seed0 for all model seeds; differs from paper statement about seeding splits",
+    "PyTorch2.1.2/CUDA11.8/Python3.10 patch/runtime choices are not author lockfile"
+  ],
+  "implementation_blockers": [
+    "Matching two-T4 FP16 CUDA smoke certificate required before full execution",
+    "CUDA memory/throughput not measured locally; current Torch build is CPU-only"
+  ],
+  "full_run_gate": {
+    "certificate": "results/kaggle-t4x2-smoke/cuda_smoke_pass.json",
+    "policy": "Full CLI requires matching successful two-T4 smoke evidence and identical code/config/data/software; full_run_enabled=false denotes default blocked state, not a manual override."
+  }
+}

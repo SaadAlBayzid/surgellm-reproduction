@@ -1,0 +1,17 @@
+{
+  "unit_tests": {
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "passed": true
+  },
+  "freeze_replay": {
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "passed": true
+  },
+  "preflight": {
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "passed": true
+  }
+}

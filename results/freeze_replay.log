@@ -1,0 +1,5 @@
+D1 {'train': 6899, 'validation': 767, 'test': 872}
+D2 {'train': 1400, 'validation': 300, 'test': 300}
+D3 {'train': 2214, 'validation': 474, 'test': 476}
+D4 {'train': 3500, 'validation': 750, 'test': 750}
+ALL FOUR TASKS FROZEN

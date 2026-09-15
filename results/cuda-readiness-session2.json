@@ -1,0 +1,14 @@
+{
+  "runtime": {
+    "device": "cpu",
+    "precision": "fp32",
+    "cuda_available": false,
+    "torch_version": "2.6.0+cpu",
+    "torch_cuda_version": null,
+    "gpu": null
+  },
+  "purpose": "tiny debugging CUDA check, not four-task reproduction",
+  "full_training_started": false,
+  "status": "SKIPPED",
+  "reason": "torch.cuda.is_available() is false; CUDA path not validated"
+}

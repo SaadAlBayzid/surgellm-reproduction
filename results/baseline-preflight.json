@@ -1,0 +1,31 @@
+{
+  "seed": 0,
+  "training_started": false,
+  "status": "BLOCKED",
+  "unresolved_fields": [],
+  "data_status": "FROZEN_VERIFIED",
+  "assumptions": [
+    "D1 cap-before-holdout from historical debug split; paper inconsistent",
+    "D2 HF train release 90447 vs paper validation90564; supporting paragraph construction and quota980/1020",
+    "D3 proportional3164 vs paper balanced impossible without replacement",
+    "D4 recovered same-parent sample not exact author draw",
+    "Shared four heads/no task embedding is paper-derived baseline interpretation",
+    "Head initialization and encoder dropout defaults unknown in author code",
+    "Global batch64 from Table13 rather than prose32",
+    "Round-robin task balancing with cycling and padded batches defines epoch/updates",
+    "Bias and LayerNorm.weight excluded from decay, unlike historical debug decay-all",
+    "Ceil warmup and update-step schedule",
+    "Fast right-padded tokenizer and pinned non-author checkpoint revision",
+    "Full-validation unweighted mean task macro-F1 rather than unknown QuickVal",
+    "Fixed data_seed0 for all model seeds; differs from paper statement about seeding splits",
+    "PyTorch2.1.2/CUDA11.8/Python3.10 patch/runtime choices are not author lockfile"
+  ],
+  "implementation_blockers": [
+    "Four-head baseline model/trainer/data-adapter integration not implemented; do not redesign in this session",
+    "Round-robin distributed sampler, AMP accumulation, scheduler, metrics and best-checkpoint restoration not integration-tested",
+    "CUDA runtime unavailable in current CPU-only PyTorch environment",
+    "New best-effort protocol requires review before first real run; full_run_enabled remains false"
+  ],
+  "full_run_enabled": false,
+  "runner_status": "four-task training intentionally not enabled"
+}
